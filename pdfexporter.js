@@ -39,6 +39,7 @@ myloadJS(
       "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js2",
       function () {
         console.log("PDF JS loaded!");
+        window.URL.revokeObjectURL(uu);
       }
     );
   }
