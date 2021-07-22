@@ -43,7 +43,8 @@ function saveDiv(divId, title) {
 	html2canvas(document.getElementById(divId)).then(canvas => {
 	 doc.fromHTML(`<html><head><title>${title}</title></head><body>` + canvas + `</body></html>`);
 	 doc.save('div.pdf');	
-	});	
+	})
+	.error(err=>console.log(err));
 }
 
 function printDiv(divId, title, height, width, top, left) {
@@ -63,5 +64,6 @@ function printDiv(divId, title, height, width, top, left) {
   mywindow.close();
 
   return true;
-	});		
+	})
+	.error(err=>console.log(err));		
 }
