@@ -1,4 +1,4 @@
-//var ref = w.document.getElementsByTagName( "script" )[ 0 ];var script = w.document.createElement( "script" );script.src = 'https://raw.githubusercontent.com/LostMann/WebTools/main/pdfexport.js';ref.parentNode.insertBefore( script, ref );
+//var uu=await fetch('https://raw.githubusercontent.com/LostMann/WebTools/main/pdfexporter.js').then(r => r.blob()).then(r=> window.URL.createObjectURL(new Blob([r], {type:'text/javascript'})));var ref = w.document.getElementsByTagName( "script" )[ 0 ];var script = document.createElement("script");script.src = uu;ref.parentNode.insertBefore(script,ref);
 (function( w ){
 	var myloadJS = function( src, cb, ordered ){
 		"use strict";
