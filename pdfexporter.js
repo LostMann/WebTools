@@ -1,5 +1,5 @@
 //injection script
-//var uu=await fetch('https://raw.githubusercontent.com/LostMann/WebTools/main/pdfexporter.js?'+new Date().getTime()).then(r => r.blob()).then(r=> window.URL.createObjectURL(new Blob([r], {type:'text/javascript'})));var ref = document.getElementsByTagName( "script" )[ 0 ];var script = document.createElement("script");script.src = uu;ref.parentNode.insertBefore(script,ref);
+//var uu=await fetch('https://raw.githubusercontent.com/LostMann/WebTools/main/pdfexporter.js?'+new Date().getTime(),{cache: "no-cache"}).then(r => r.blob()).then(r=> window.URL.createObjectURL(new Blob([r], {type:'text/javascript'})));var ref = document.getElementsByTagName( "script" )[ 0 ];var script = document.createElement("script");script.src = uu;ref.parentNode.insertBefore(script,ref);
 (function (w) {
   var myloadJS = function (src, cb, ordered) {
     "use strict";
@@ -39,6 +39,7 @@ myloadJS(
       "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js2",
       function () {
         console.log("PDF JS loaded!");
+        window.URL.revokeObjectURL(uu);
       }
     );
   }
