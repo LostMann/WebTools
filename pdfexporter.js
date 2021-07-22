@@ -31,24 +31,29 @@
 }( typeof global !== "undefined" ? global : this ));
 
 var doc ={};
+
+myloadJS('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js',()=>{
 myloadJS('https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js',function(){
 	console.log('PDF JS loaded!');
 	
 	doc = new jsPDF();	
-});
+})});
 
 function saveDiv(divId, title) {
- doc.fromHTML(`<html><head><title>${title}</title></head><body>` + document.getElementById(divId).innerHTML + `</body></html>`);
- doc.save('div.pdf');
+	html2canvas(document.getElementById(divId)).then(canvas => {
+	 doc.fromHTML(`<html><head><title>${title}</title></head><body>` + canvas + `</body></html>`);
+	 doc.save('div.pdf');	
+	});	
 }
 
 function printDiv(divId, title, height, width, top, left) {
+	html2canvas(document.getElementById(divId)).then(canvas => {
   height=height || 650; width=width || 900;top=top || 100;left=left || 150;  
   let mywindow = window.open('', 'PRINT', 'height='+height+',width='+width+',top='+top+',left='+left);
 
   mywindow.document.write(`<html><head><title>${title}</title>`);
   mywindow.document.write('</head><body >');
-  mywindow.document.write(document.getElementById(divId).innerHTML);
+  mywindow.document.write(canvas);
   mywindow.document.write('</body></html>');
 
   mywindow.document.close(); // necessary for IE >= 10
@@ -58,4 +63,5 @@ function printDiv(divId, title, height, width, top, left) {
   mywindow.close();
 
   return true;
+	});		
 }
