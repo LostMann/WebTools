@@ -1,4 +1,5 @@
-////var uu=await fetch('https://raw.githubusercontent.com/LostMann/WebTools/main/pdfexporter.js').then(r => r.blob()).then(r=> window.URL.createObjectURL(new Blob([r], {type:'text/javascript'})));var ref = document.getElementsByTagName( "script" )[ 0 ];var script = document.createElement("script");script.src = uu;ref.parentNode.insertBefore(script,ref);
+//injection script
+//var uu=await fetch('https://raw.githubusercontent.com/LostMann/WebTools/main/pdfexporter.js?'+new Date().getTime()).then(r => r.blob()).then(r=> window.URL.createObjectURL(new Blob([r], {type:'text/javascript'})));var ref = document.getElementsByTagName( "script" )[ 0 ];var script = document.createElement("script");script.src = uu;ref.parentNode.insertBefore(script,ref);
 (function( w ){
 	var myloadJS = function( src, cb, ordered ){
 		"use strict";
