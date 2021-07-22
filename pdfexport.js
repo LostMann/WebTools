@@ -1,4 +1,4 @@
-//var ref = w.document.getElementsByTagName( "script" )[ 0 ];var script = w.document.createElement( "script" );script.src = '';ref.parentNode.insertBefore( script, ref );
+//var ref = w.document.getElementsByTagName( "script" )[ 0 ];var script = w.document.createElement( "script" );script.src = 'https://raw.githubusercontent.com/LostMann/WebTools/main/pdfexport.js';ref.parentNode.insertBefore( script, ref );
 (function( w ){
 	var myloadJS = function( src, cb, ordered ){
 		"use strict";
