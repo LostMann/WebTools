@@ -44,7 +44,7 @@ function saveDiv(divId, title) {
 	 doc.fromHTML(`<html><head><title>${title}</title></head><body>` + canvas + `</body></html>`);
 	 doc.save('div.pdf');	
 	})
-	.error(err=>console.log(err));
+	.catch(err=>console.log(err));
 }
 
 function printDiv(divId, title, height, width, top, left) {
@@ -65,5 +65,5 @@ function printDiv(divId, title, height, width, top, left) {
 
   return true;
 	})
-	.error(err=>console.log(err));		
+	.catch(err=>console.log(err));		
 }
