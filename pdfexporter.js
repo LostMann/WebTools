@@ -92,7 +92,7 @@ function printDiv(divId, title, height, width, top, left) {
       mywindow.focus(); // necessary for IE >= 10*/
 
       mywindow.print();
-      mywindow.close();
+      //mywindow.close();
 
       return true;
     })
