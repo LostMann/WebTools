@@ -30,20 +30,14 @@
   }
 })(typeof global !== "undefined" ? global : this);
 
-//myloadJS("https://code.jquery.com/jquery-2.2.4.min.js", () => {
+myloadJS("https://html2canvas.hertzen.com/dist/html2canvas.min.js", () => {
   myloadJS(
-    "https://html2canvas.hertzen.com/dist/html2canvas.min.js",
-    () => {
+    "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js",
+    function () {
       console.log("PDF JS loaded!");
-      // myloadJS(
-      //   "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js2",
-      //   function () {
-      //     console.log("PDF JS loaded!");
-      //   }
-      // );
     }
   );
-//});
+});
 
 function saveDiv(divId, title) {
   html2canvas(divId, {
@@ -53,9 +47,9 @@ function saveDiv(divId, title) {
     .then((canvas) => {
       var doc = new jsPDF();
       doc.fromHTML(
-        `<html><head><title>${title}</title></head><body><img src="` +
+        `<html><head><title>${title}</title></head><body style="padding:0px;margin:0px;"><img src="` +
           canvas.toDataURL("image/png") +
-          `" style="width:100%;height:100%" /></body></html>`
+          `"/></body></html>`
       );
       doc.save("div.pdf");
     })
@@ -65,7 +59,7 @@ function saveDiv(divId, title) {
 }
 
 function printDiv(divId, title, height, width, top, left) {
-  html2canvas(divId,{
+  html2canvas(divId, {
     allowTaint: true,
     useCORS: true,
   })
@@ -82,11 +76,11 @@ function printDiv(divId, title, height, width, top, left) {
       );
 
       mywindow.document.write(`<html><head><title>${title}</title>`);
-      mywindow.document.write("</head><body ><img src='");
-      mywindow.document.write(canvas.toDataURL("image/png"));
       mywindow.document.write(
-        "' style='width:100%;height:100%' /></body></html>"
+        "</head><body style='padding:0px;margin:0px;''><img src='"
       );
+      mywindow.document.write(canvas.toDataURL("image/png"));
+      mywindow.document.write("' /></body></html>");
 
       mywindow.document.close(); // necessary for IE >= 10
       mywindow.focus(); // necessary for IE >= 10*/
@@ -100,9 +94,6 @@ function printDiv(divId, title, height, width, top, left) {
       console.log(err);
     });
 }
-
-
-
 
 
 
