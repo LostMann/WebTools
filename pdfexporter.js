@@ -30,25 +30,28 @@
   }
 })(typeof global !== "undefined" ? global : this);
 
-var doc = {};
-
-myloadJS(
-  "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js",
-  () => {
-    console.log("PDF JS loaded!");
-    // myloadJS(
-    //   "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js2",
-    //   function () {
-    //     console.log("PDF JS loaded!");        
-    //   }
-    // );
-  }
-);
+myloadJS("https://code.jquery.com/jquery-2.2.4.min.js", () => {
+  myloadJS(
+    "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js",
+    () => {
+      console.log("PDF JS loaded!");
+      // myloadJS(
+      //   "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js2",
+      //   function () {
+      //     console.log("PDF JS loaded!");
+      //   }
+      // );
+    }
+  );
+});
 
 function saveDiv(divId, title) {
-  html2canvas(document.getElementById(divId))
+  html2canvas(document.getElementById(divId), {
+    allowTaint: true,
+    useCORS: true,
+  })
     .then((canvas) => {
-      doc = doc || new jsPDF();
+      var doc = new jsPDF();
       doc.fromHTML(
         `<html><head><title>${title}</title></head><body><img src="` +
           canvas.toDataURL() +
@@ -78,7 +81,9 @@ function printDiv(divId, title, height, width, top, left) {
       mywindow.document.write(`<html><head><title>${title}</title>`);
       mywindow.document.write("</head><body ><img src='");
       mywindow.document.write(canvas.toDataURL());
-      mywindow.document.write("' style='width:100%;height:100%' /></body></html>");
+      mywindow.document.write(
+        "' style='width:100%;height:100%' /></body></html>"
+      );
 
       mywindow.document.close(); // necessary for IE >= 10
       mywindow.focus(); // necessary for IE >= 10*/
