@@ -32,7 +32,7 @@
 
 //myloadJS("https://code.jquery.com/jquery-2.2.4.min.js", () => {
   myloadJS(
-    "http://html2canvas.hertzen.com/dist/html2canvas.min.js",
+    "https://html2canvas.hertzen.com/dist/html2canvas.min.js",
     () => {
       console.log("PDF JS loaded!");
       // myloadJS(
