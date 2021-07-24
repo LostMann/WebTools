@@ -31,12 +31,13 @@
 })(typeof global !== "undefined" ? global : this);
 
 myloadJS("https://html2canvas.hertzen.com/dist/html2canvas.min.js", () => {
-  myloadJS(
-    "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js",
-    function () {
-      console.log("PDF JS loaded!");
-    }
-  );
+  console.log("PDF JS loaded!");
+  // myloadJS(
+  //   "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js",
+  //   function () {
+  //     console.log("PDF JS loaded!");
+  //   }
+  // );
 });
 
 function saveDiv(divId, title) {
@@ -94,6 +95,11 @@ function printDiv(divId, title, height, width, top, left) {
       console.log(err);
     });
 }
+
+
+
+
+
 
 
 
