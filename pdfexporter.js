@@ -48,12 +48,11 @@ myloadJS(
 function saveDiv(divId, title) {
   html2canvas(document.getElementById(divId))
     .then((canvas) => {
-      console.log(canvas);
       doc = doc || new jsPDF();
       doc.fromHTML(
-        `<html><head><title>${title}</title></head><body>` +
-          canvas +
-          `</body></html>`
+        `<html><head><title>${title}</title></head><body><img src="` +
+          canvas.toDataURL() +
+          `" style="width:100%;height:100%" /></body></html>`
       );
       doc.save("div.pdf");
     })
@@ -77,9 +76,9 @@ function printDiv(divId, title, height, width, top, left) {
       );
 
       mywindow.document.write(`<html><head><title>${title}</title>`);
-      mywindow.document.write("</head><body >");
-      mywindow.document.write(canvas);
-      mywindow.document.write("</body></html>");
+      mywindow.document.write("</head><body ><img src='");
+      mywindow.document.write(canvas.toDataURL());
+      mywindow.document.write("' style='width:100%;height:100%' /></body></html>");
 
       mywindow.document.close(); // necessary for IE >= 10
       mywindow.focus(); // necessary for IE >= 10*/
