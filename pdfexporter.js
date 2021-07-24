@@ -54,7 +54,7 @@ function saveDiv(divId, title) {
       var doc = new jsPDF();
       doc.fromHTML(
         `<html><head><title>${title}</title></head><body><img src="` +
-          canvas.toDataURL() +
+          canvas.toDataURL("image/png") +
           `" style="width:100%;height:100%" /></body></html>`
       );
       doc.save("div.pdf");
@@ -83,7 +83,7 @@ function printDiv(divId, title, height, width, top, left) {
 
       mywindow.document.write(`<html><head><title>${title}</title>`);
       mywindow.document.write("</head><body ><img src='");
-      mywindow.document.write(canvas.toDataURL());
+      mywindow.document.write(canvas.toDataURL("image/png"));
       mywindow.document.write(
         "' style='width:100%;height:100%' /></body></html>"
       );
@@ -100,3 +100,11 @@ function printDiv(divId, title, height, width, top, left) {
       console.log(err);
     });
 }
+
+
+
+
+
+
+
+
