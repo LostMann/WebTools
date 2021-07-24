@@ -96,12 +96,3 @@ function printDiv(divId, title, height, width, top, left) {
     });
 }
 
-
-
-
-
-
-
-
-
-
