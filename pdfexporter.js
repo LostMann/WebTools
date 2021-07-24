@@ -46,7 +46,7 @@
 //});
 
 function saveDiv(divId, title) {
-  html2canvas(document.getElementById(divId), {
+  html2canvas(divId, {
     allowTaint: true,
     useCORS: true,
   })
@@ -65,7 +65,10 @@ function saveDiv(divId, title) {
 }
 
 function printDiv(divId, title, height, width, top, left) {
-  html2canvas(document.getElementById(divId))
+  html2canvas(divId,{
+    allowTaint: true,
+    useCORS: true,
+  })
     .then((canvas) => {
       console.log(canvas);
       height = height || 650;
