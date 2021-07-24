@@ -30,9 +30,9 @@
   }
 })(typeof global !== "undefined" ? global : this);
 
-myloadJS("https://code.jquery.com/jquery-2.2.4.min.js", () => {
+//myloadJS("https://code.jquery.com/jquery-2.2.4.min.js", () => {
   myloadJS(
-    "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js",
+    "http://html2canvas.hertzen.com/dist/html2canvas.min.js",
     () => {
       console.log("PDF JS loaded!");
       // myloadJS(
@@ -43,7 +43,7 @@ myloadJS("https://code.jquery.com/jquery-2.2.4.min.js", () => {
       // );
     }
   );
-});
+//});
 
 function saveDiv(divId, title) {
   html2canvas(document.getElementById(divId), {
